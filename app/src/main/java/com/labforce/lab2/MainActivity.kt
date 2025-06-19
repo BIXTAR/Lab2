@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         checkFactorialBtn.setOnClickListener {
             val numberText = numberInput.text.toString()
-            val n = 1
+            val n = numberText.toIntOrNull()
 
             if (n == null || n <= 0) {
                 factorialResult.text = "Введите корректное натуральное число"
@@ -35,6 +35,12 @@ class MainActivity : AppCompatActivity() {
                     found = true
                     break
                 }
+            }
+
+            factorialResult.text = if (found) {
+                "$n! можно представить как произведение трёх последовательных чисел"
+            } else {
+                "$n! нельзя представить как произведение трёх последовательных чисел"
             }
 
         }
