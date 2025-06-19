@@ -12,12 +12,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val numberInput = findViewById<EditText>(R.id.numberInput)
+        val factorialResult = findViewById<TextView>(R.id.factorialResult)
         val checkFactorialBtn = findViewById<Button>(R.id.checkFactorialBtn)
 
         checkFactorialBtn.setOnClickListener {
             val numberText = numberInput.text.toString()
             val n = 1
 
+            if (n == null || n <= 0) {
+                factorialResult.text = "Введите корректное натуральное число"
+                return@setOnClickListener
+            }
 
             val fact = factorial(n)
 
