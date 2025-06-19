@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         checkFactorialBtn.setOnClickListener {
             val numberText = numberInput.text.toString()
-            val n = numberText.toIntOrNull()
+            val n = 1
 
 
             val fact = factorial(n)
@@ -34,3 +34,11 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    private fun factorial(n: Int): BigInteger {
+        var result = BigInteger.ONE
+        for (i in 2..n) {
+            result = result.multiply(BigInteger.valueOf(i.toLong()))
+        }
+        return result
+    }
+}
